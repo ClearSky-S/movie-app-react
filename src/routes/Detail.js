@@ -1,9 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter,
-  Routes,
-  Route,
   Link,
   useParams
 } from "react-router-dom";
@@ -15,14 +12,17 @@ function Detail() {
   const [loading, setLoading] = useState(true);
   const param = useParams();
   console.log(param);
-  const {id} = useParams();
-  const getMovies = async () => {
-    const response = await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`);
-    const json = await response.json();
-    setMovie(json.data.movie);
-    setLoading(false);
-  };
-  useEffect(()=>{getMovies()}, []);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const response = await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`);
+      const json = await response.json();
+      setMovie(json.data.movie);
+      setLoading(false);
+    };
+    getMovies();
+  }, [id]);
   console.log(movie);
   if (loading === true) { return <div> loading </div>; }
   else {
