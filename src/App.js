@@ -1,12 +1,25 @@
 import './App.css';
-import Movie from './components/Movie.js';
+import Home from './routes/Home';
+import Detail from './routes/Detail';
+
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      App
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/movie/:id" element={<Detail/>}/>
+
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

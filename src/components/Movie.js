@@ -1,7 +1,8 @@
+import {Link} from "react-router-dom"
 
 function Movie({movie}){
     return <div key={movie.id}>
-    <h2>{movie.title}</h2>
+    <Link to={`/movie/${movie.id}`}><h2>{movie.title}</h2></Link>
     <img src={movie.medium_cover_image} alt={movie.title}/>
     <div>{movie.rating}</div>
     {console.log(movie.genres)}

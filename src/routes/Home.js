@@ -1,4 +1,4 @@
-import Movie from './components/Movie.js';
+import Movie from '../components/Movie';
 import React, { useState, useEffect } from 'react';
 
 function Home() {
